@@ -31,4 +31,7 @@ def parse_args():
     return args
 
 
-
+args = parse_args()
+saving_name = os.path.basename(args.input_image).replace(".jpg", ".npy")
+saving_path = os.path.join(args.destination_dir, saving_name)
+np.save(saving_path, np.array(get_embeddings(args.input_image)))
