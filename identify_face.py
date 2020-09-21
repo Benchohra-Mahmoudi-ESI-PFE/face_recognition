@@ -111,7 +111,12 @@ if __name__ == '__main__':
         accuracy = 1-score
         accuracy_list.append((id, accuracy)) """
 
-
+        face_path = os.path.join(args.preprocessed_dir, face_file)
+        embeddings_base = np.load(face_path)
+        score = compare(embeddings_face, embeddings_base)
+        score = round(score, 2)
+        accuracy = 1-score
+        accuracy_list.append((id, accuracy))
 
     print("Done with the loop in : %f" % (time.time() - start_loop))
 
