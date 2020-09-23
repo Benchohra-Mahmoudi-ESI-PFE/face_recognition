@@ -11,10 +11,7 @@ from keras_vggface.vggface import VGGFace
 from keras_vggface.utils import preprocess_input
 
 import sys
-# insert at 1, 0 is the script path (or '' in REPL)
-sys.path.insert(1, '/home/sahar/Documents/Mahmoudi_Benchohra_Project/Speaker_Verification_Vox1/')
-sys.path.insert(1, '/home/sahar/benchohra/DFace_production/')
-
+sys.path.insert(1, '../config')
 from hparam import hparam as hp
 
 # extract face and calculate face embeddings in a photo
@@ -50,19 +47,6 @@ def parse_args():
     return args
 
 
-""" # ENROLL ========================================================================================================================================================
-
-"conda run -n pytorch_main python " + hp.integration.face_verification_path + "extract_face.py --input_image " + img_file_path + " --destination_dir " + hp.integration.enroll_preprocessed_photo
-
-# VERIFY ========================================================================================================================================================
- 
-"conda run -n pytorch_main python " + hp.integration.face_verification_path + "extract_face.py --input_image " + img_file_path + " --destination_dir " + hp.integration.verify_upload_folder
-
-"conda run -n vgg_py3 python " + hp.integration.face_verification_path + "identify_face.py --face_image " + os.path.splitext(img_file_path)[0]+"_visage.jpg" + " --preprocessed_dir " + hp.integration.enroll_preprocessed_photo
-
-# =============================================================================================================================================================== """
-
-
 if __name__ == '__main__':
 
     args = parse_args()
@@ -80,9 +64,6 @@ if __name__ == '__main__':
 
     start_loop = time.time()
     for face_file in os.listdir(args.preprocessed_dir):
-        if face_file[-4:]=='.jpg':
-            continue
-        print("Loop for (%s)" % (face_file))
         id = '_'.join(face_file.split('_')[:4])
 
         # Check if a list of best speakers is provided

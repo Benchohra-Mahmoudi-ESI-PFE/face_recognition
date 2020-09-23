@@ -5,8 +5,7 @@ import numpy as np
 from dface.core.detect import create_mtcnn_net, MtcnnDetector
 
 import sys
-# insert at 1, 0 is the script path (or '' in REPL)
-sys.path.insert(1, '/home/sahar/Documents/Mahmoudi_Benchohra_Project/Speaker_Verification_Vox1/')
+sys.path.insert(1, '../config')
 from hparam import hparam as hp
 
 
