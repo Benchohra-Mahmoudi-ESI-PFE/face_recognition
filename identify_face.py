@@ -81,16 +81,6 @@ if __name__ == '__main__':
             accuracy = 1-score
             accuracy_list.append((id, accuracy)) """
 
-        """ face_path = os.path.join(args.preprocessed_dir, face_file)
-        start_em_b = time.time()
-        embeddings_base = get_embeddings(face_path)
-        print("Got base embeddings in : %f" % (time.time() - start_em_b))
-        start_comp = time.time()
-        score = compare(embeddings_face, embeddings_base)
-        print("Done comparing in : %f" % (time.time() - start_comp))
-        score = round(score, 2)
-        accuracy = 1-score
-        accuracy_list.append((id, accuracy)) """
 
         face_path = os.path.join(args.preprocessed_dir, face_file)
         embeddings_base = np.load(face_path)
